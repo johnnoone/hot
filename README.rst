@@ -11,15 +11,25 @@ Very important when installing this package though is that you SHOULD use
 ``pip install hot``. The fact is using ``python setup.py install`` will not
 track the path file ``zyx-hot.pth``.
 
-The reason for this is that if not using ``pip``, then the package installation
-will not track the customs ``.pth`` file and uninstall will let dirty files
-into your `site-packages`.
+The reason for this is that if not using ``pip``, then the package
+installation will not track the customs ``.pth`` file and uninstall will let
+dirty files into your `site-packages`.
 
-``pip install -e .`` doesn't work either. .pth files are not installed with this
-context.
+``pip install -e .`` doesn't work either. .pth files are not installed with
+this context.
 
-``zyx-hot.pth`` is named ``zyx**`` in order to load at very last. Investigate if
-there is a better way to hook sys.path, sys.path_hooks, etc...
+
+Tricks
+------
+
+  ``zyx-hot.pth`` is named ``zyx**`` in order to load at very last.
+  Investigate if there is a better way to hook loading, with ``site`` module
+  for example.
+
+  Ensure that .pth is relative, so virtualenv stays relocatable::
+
+      from distutils.sysconfig import get_python_lib
+      get_python_lib(prefix='')
 
 
 Reading

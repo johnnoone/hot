@@ -36,6 +36,10 @@ else:
 
 setup(
     name='hot',
+    install_requires=[
+       'colorama>=0.3.0',
+       'wrapt>=1.10.0'
+    ]
     data_files=[
         (get_python_lib(prefix=''), pths)
     ],
@@ -46,13 +50,3 @@ setup(
         'develop': MyDevelop
     }
 )
-
-"""
-
-.. Notes::
-
-    get_python_lib(prefix='') : ensure it is relative
-    http://blog.dscpl.com.au/2015/04/automatic-patching-of-python.html
-
-
-"""
