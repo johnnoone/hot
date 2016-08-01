@@ -1,0 +1,1 @@
+import importlib.util ; spec = importlib.util.find_spec("hot") ; mod = spec and importlib.import_module("hot"); mod and mod.process_startup()

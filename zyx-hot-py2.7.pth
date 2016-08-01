@@ -1,0 +1,1 @@
+import pkgutil ; loader = pkgutil.find_loader("hot") ; import importlib ; mod = loader and importlib.import_module("hot"); mod and mod.process_startup()

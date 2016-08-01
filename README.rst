@@ -7,15 +7,19 @@ This project is a sandbox for monkey patching.
 
 Beware: Use it under a safe virtualenv (it may breaks pths).
 
-Very important when installing this package though is that you cannot
-use ``easy_install`` or ``python setup.py install``. One can only install
-this package using ‘pip’.
+Very important when installing this package though is that you SHOULD use
+``pip install hot``. The fact is using ``python setup.py install`` will not
+track the path file ``zyx-hot.pth``.
 
 The reason for this is that if not using ``pip``, then the package installation
-tool can install the package as an egg. In this situation the custom ``.pth``
-file will actually be installed within the egg directory and not actually
-within the ``site-packages`` directory.
+will not track the customs ``.pth`` file and uninstall will let dirty files
+into your `site-packages`.
 
+``pip install -e .`` doesn't work either. .pth files are not installed with this
+context.
+
+``zyx-hot.pth`` is named ``zyx**`` in order to load at very last. Investigate if
+there is a better way to hook sys.path, sys.path_hooks, etc...
 
 
 Reading
